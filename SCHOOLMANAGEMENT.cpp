@@ -62,7 +62,7 @@ void UpdateStudentAttendance(int teacherClass);
 void ViewStudentAttendance(int teacherClass);
 //                   <---------------------->
 
-// <----------- Actions That Teacher Can Perform ----------->
+// <----------- Actions That Student Can Perform ----------->
 void ViewStudentDetailsToStudent(int studentClass, int studentIndex);
 void ViewStudentMarksToStudent(int studentClass, int studentIndex);
 void ViewStudentAttendanceToStudent(int studentClass, int studentIndex);
