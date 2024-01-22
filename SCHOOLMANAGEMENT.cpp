@@ -164,9 +164,9 @@ int main()
 
     while (true)
     {
-        TextTypingAnimation("\t\t\t\t ---------------------------------------------------------------- \n", 20, "36");
-        TextTypingAnimation("\t\t\t\t|              Welcome to School Management System               | \n", 20, "35");
-        TextTypingAnimation("\t\t\t\t ---------------------------------------------------------------- \n", 20, "36");
+        TextTypingAnimation("\t\t\t\t ---------------------------------------------------------------- \n", 20, "33");
+        TextTypingAnimation("\t\t\t\t|              Welcome to School Management System               | \n", 20, "34");
+        TextTypingAnimation("\t\t\t\t ---------------------------------------------------------------- \n", 20, "33");
         TextTypingAnimation("\n\n\n\t\t\t\t\t\t[1] Login as admin.\n", 10, "34");
         TextTypingAnimation("\t\t\t\t\t\t[2] Login as Teacher.\n", 10, "34");
         TextTypingAnimation("\t\t\t\t\t\t[3] Login as student.\n", 10, "34");
