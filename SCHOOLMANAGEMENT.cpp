@@ -62,7 +62,7 @@ void UpdateStudentAttendance(int teacherClass);
 void ViewStudentAttendance(int teacherClass);
 //                   <---------------------->
 
-// <----------- Actions That Student Can Perform ----------->
+// <----------- Actions That Teacher Can Perform ----------->
 void ViewStudentDetailsToStudent(int studentClass, int studentIndex);
 void ViewStudentMarksToStudent(int studentClass, int studentIndex);
 void ViewStudentAttendanceToStudent(int studentClass, int studentIndex);
@@ -164,12 +164,14 @@ int main()
 
     while (true)
     {
-        TextTypingAnimation("\t\t\t\t<============ Welcome to School Management System ! ============> \n", 20, "34");
-        TextTypingAnimation("\n [1] Login as admin.\n", 10, "34");
-        TextTypingAnimation(" [2] Login as Teacher.\n", 10, "34");
-        TextTypingAnimation(" [3] Login as student.\n", 10, "34");
+        TextTypingAnimation("\t\t\t\t ---------------------------------------------------------------- \n", 20, "36");
+        TextTypingAnimation("\t\t\t\t|              Welcome to School Management System               | \n", 20, "35");
+        TextTypingAnimation("\t\t\t\t ---------------------------------------------------------------- \n", 20, "36");
+        TextTypingAnimation("\n\n\n\t\t\t\t\t\t[1] Login as admin.\n", 10, "34");
+        TextTypingAnimation("\t\t\t\t\t\t[2] Login as Teacher.\n", 10, "34");
+        TextTypingAnimation("\t\t\t\t\t\t[3] Login as student.\n", 10, "34");
 
-        TextTypingAnimation("\n Enter Your choice from above : ", 10, "35");
+        TextTypingAnimation("\n\t\t\t\t\t\tEnter Your choice from above : ", 10, "35");
 
         int ch;
         cin >> ch;
@@ -214,19 +216,19 @@ void AdminLogin()
 
     while (true)
     {
-        cout << "Enter Username: ";
+        cout << "\n\n\n\t\t\t\t\tEnter Username: ";
         string AdminInputName;
         cin >> AdminInputName;
 
-        cout << "Enter Password: ";
+        cout << "\t\t\t\t\tEnter Password: ";
         string AdminInputPass;
         cin >> AdminInputPass;
 
         if (AdminInputPass == AdminPassword && AdminInputName == AdminName)
         {
             system("cls");
-            TextTypingAnimation(" Please Wait Logging in .....\n", 50, "32");
-            TextTypingAnimation(" Getting Things Ready for you ...\n", 50, "32");
+            TextTypingAnimation("\n\n\n\t\t\t\t\t Please Wait Logging in .....\n", 50, "32");
+            TextTypingAnimation("\t\t\t\t\t Getting Things Ready for you ...\n", 50, "32");
             system("cls");
 
             AdminPanel();
@@ -235,17 +237,18 @@ void AdminLogin()
         else
         {
             system("cls");
-            PrintColoredText("--------Wrong Credentials!--------\n", "31");
+            PrintColoredText("\n\n\n\t\t\t\t\t--------Wrong Credentials!--------\n", "31");
             attempts++;
             if (attempts <= maxAttempts)
             {
-                cout << "Attempts left: " << maxAttempts - attempts + 1 << endl;
+                PrintColoredText("\n\t\t\t\t\tAttempts left: ","31");
+				cout << maxAttempts - attempts + 1 << endl;
             }
             else
             {
                 system("cls");
-                PrintColoredText("You have tried too many times. You can't sign in for 24 hours.\n", "31");
-                TextTypingAnimation("Exiting School Management System..... \n", 50, "32");
+                PrintColoredText("\n\n\n\t\t\t\tYou have tried too many times. You can't sign in for 24 hours.\n", "31");
+                TextTypingAnimation("\t\t\t\tExiting School Management System..... \n", 50, "32");
                 PausingOnInvalidInputs();
                 system("cls");
                 Pattern();
@@ -259,12 +262,18 @@ void AdminPanel()
 {
     while (true)
     {
-        TextTypingAnimation("\t\t\t\t<============ Welcome to the Admin Panel ============> \n", 20, "33");
-        TextTypingAnimation("\n <======== MENU ========>\n", 10, "33");
-        cout << " [1] Panel to perform  action on Teachers \n";
-        cout << " [2] Panel to perform  action on Students \n";
-        cout << " [3] Return to Main Menu \n";
-        TextTypingAnimation(" \n Enter Your choice from above : ", 10, "33");
+    	TextTypingAnimation("\t\t\t\t ---------------------------------------------------------------- \n", 5 , "34");
+        TextTypingAnimation("\t\t\t\t|                  Welcome to the Admin Panel                    | \n", 5 , "33");
+        TextTypingAnimation("\t\t\t\t ---------------------------------------------------------------- \n", 5 , "34");
+        
+    	TextTypingAnimation("\n\n\t\t\t\t\t    --------------------------- \n", 5 , "34");
+        TextTypingAnimation("\t\t\t\t\t   |            MENU           | \n", 5 , "33");
+        TextTypingAnimation("\t\t\t\t\t    --------------------------- \n", 5 , "34");
+
+        cout << "\n\t\t\t\t\t   [1] Panel to perform  action on Teachers \n";
+        cout << "\t\t\t\t\t   [2] Panel to perform  action on Students \n";
+        cout << "\t\t\t\t\t   [3] Return to Main Menu \n";
+        TextTypingAnimation(" \n\t\t\t\t\t   Enter Your choice from above : ", 10, "33");
 
         int choice;
         cin >> choice;
@@ -307,13 +316,17 @@ void AdminToPerformActionOnTeachers()
 {
     while (true)
     {
-        cout << "\n<======== MENU ========>\n";
-        cout << "[1] Add Teacher  \n";
-        cout << "[2] Remove Teacher \n";
-        cout << "[3] Update Teacher \n";
-        cout << "[4] Show All Teachers \n";
-        cout << "[5] Return to Admin Menu \n";
-        cout << "\n Enter Your choice from above : ";
+        TextTypingAnimation("\n\n\t\t\t\t\t    --------------------------- \n", 5 , "34");
+        TextTypingAnimation("\t\t\t\t\t   |            MENU           | \n", 5 , "33");
+        TextTypingAnimation("\t\t\t\t\t    --------------------------- \n", 5 , "34");
+
+        cout << "\n\t\t\t\t\t   [1] Add Teacher \n";
+        cout << "\t\t\t\t\t   [2] Remove Teacher \n";
+        cout << "\t\t\t\t\t   [3] Update Teacher \n";
+        cout << "\t\t\t\t\t   [4] Show All Teachers \n";
+        cout << "\t\t\t\t\t   [5] Return to Admin Menu \n";
+        TextTypingAnimation(" \n\t\t\t\t\t   Enter Your choice from above : ", 10, "33");
+
         int choice;
         cin >> choice;
 
@@ -358,13 +371,17 @@ void AdminToPerformActionOnStudents()
 {
     while (true)
     {
-        cout << "\n<======== MENU ========>\n";
-        cout << "[1] Add Student \n";
-        cout << "[2] Remove Student \n";
-        cout << "[3] Update Student \n";
-        cout << "[4] Show All Students \n";
-        cout << "[5] Return to Admin Menu \n";
-        cout << "\n Enter Your choice from above : ";
+    	TextTypingAnimation("\n\n\t\t\t\t\t    --------------------------- \n", 5 , "34");
+        TextTypingAnimation("\t\t\t\t\t   |            MENU           | \n", 5 , "33");
+        TextTypingAnimation("\t\t\t\t\t    --------------------------- \n", 5 , "34");
+
+        cout << "\n\t\t\t\t\t   [1] Add Student \n";
+        cout << "\t\t\t\t\t   [2] Remove Student \n";
+        cout << "\t\t\t\t\t   [3] Update Student \n";
+        cout << "\t\t\t\t\t   [4] Show All Students \n";
+        cout << "\t\t\t\t\t   [5] Return to Admin Menu \n";
+        TextTypingAnimation(" \n\t\t\t\t\t   Enter Your choice from above : ", 10, "33");
+
         int choice;
         cin >> choice;
 
@@ -413,8 +430,8 @@ void TeacherLogin()
     string enteredPassword;
 
     while (true)
-    {
-        cout << "Enter your ID : ";
+    { 
+        cout << "\n\n\n\t\t\t\t\tEnter your ID : ";
         int teacherInpID;
         cin >> teacherInpID;
         // Check if input is valid
@@ -439,7 +456,9 @@ void TeacherLogin()
 
         if (!teacherFound)
         {
-            cout << "Teacher with ID " << teacherInpID << " not found.\n";
+		    PrintColoredText("\t\t\t\t\tTeacher with ID ","31");
+            cout <<  teacherInpID ;
+			PrintColoredText(" not found.\n","31");
             PausingOnInvalidInputs();
             system("cls");
             break;
@@ -452,14 +471,14 @@ void TeacherLogin()
             storedPassword = teacherPassword[teacherIndex];
         }
 
-        cout << "Enter your password: ";
+        cout << "\t\t\t\t\tEnter your password: ";
         cin >> enteredPassword;
 
         if (enteredPassword == storedPassword)
         {
             system("cls");
-            TextTypingAnimation(" Please Wait Logging in .....\n", 150, "32");
-            TextTypingAnimation(" Getting Things Ready for you ...\n", 150, "32");
+            TextTypingAnimation("\n\n\n\t\t\t\t\t Please Wait Logging in .....\n", 50, "32");
+            TextTypingAnimation("\t\t\t\t\t Getting Things Ready for you ...\n", 50, "32");
             system("cls");
 
             if (teacherIndex < teacher_count)
@@ -473,17 +492,18 @@ void TeacherLogin()
         else
         {
             system("cls");
-            PrintColoredText("--------Wrong Credentials!--------\n", "31");
+            PrintColoredText("\n\n\n\t\t\t\t\t--------Wrong Credentials!--------\n", "31");
             attempts++;
             if (attempts <= maxAttempts)
             {
-                cout << "Attempts left: " << maxAttempts - attempts + 1 << endl;
+                PrintColoredText("\n\t\t\t\t\tAttempts left: ","31");
+				cout << maxAttempts - attempts + 1 << endl;
             }
             else
             {
                 system("cls");
-                PrintColoredText("You have tried too many times. You can't sign in for 24 hours.\n", "31");
-                TextTypingAnimation("Exiting School Management System..... \n", 50, "32");
+                PrintColoredText("\n\n\n\t\t\t\tYou have tried too many times. You can't sign in for 24 hours.\n", "31");
+                TextTypingAnimation("\t\t\t\tExiting School Management System..... \n", 50, "32");
                 PausingOnInvalidInputs();
                 system("cls");
                 Pattern();
@@ -1099,17 +1119,20 @@ void TeacherPanel(int teacherClass)
 {
     while (true)
     {
-        TextTypingAnimation("\t\t\t\t<============ Welcome to the Teacher Panel ============> \n", 3, "33");
-
-        TextTypingAnimation("\n<======== Menu ========>\n", 1, "33");
-        cout << "[1] Show My Details \n";
-        cout << "[2] Show all Students \n";
-        cout << "[3] Perform action on student marks \n";
-        cout << "[4] Perform action on student Attendence \n";
-        cout << "[5] Change Password \n";
-        cout << "[6] Return to Main Menu\n";
-
-        TextTypingAnimation("\n Enter Your choice from above : ", 1, "33");
+    	TextTypingAnimation("\t\t\t\t ---------------------------------------------------------------- \n", 5 , "34");
+        TextTypingAnimation("\t\t\t\t|                  Welcome to the Teacher Panel                  | \n", 5 , "33");
+        TextTypingAnimation("\t\t\t\t ---------------------------------------------------------------- \n", 5 , "34");
+        
+    	TextTypingAnimation("\n\n\t\t\t\t\t    --------------------------- \n", 5 , "34");
+        TextTypingAnimation("\t\t\t\t\t   |            MENU           | \n", 5 , "33");
+        TextTypingAnimation("\t\t\t\t\t    --------------------------- \n", 5 , "34");
+        cout << "\n\t\t\t\t\t   [1] Show My Details \n";
+        cout << "\t\t\t\t\t   [2] Show all Students \n";
+        cout << "\t\t\t\t\t   [3] Perform action on student marks \n";
+        cout << "\t\t\t\t\t   [4] Perform action on student Attendence \n";
+        cout << "\t\t\t\t\t   [5] Change Password \n";
+        cout << "\t\t\t\t\t   [6] Return to Main Menu \n";
+        TextTypingAnimation(" \n\t\t\t\t\t   Enter Your choice from above : ", 10, "33");
 
         int choice;
         cin >> choice;
@@ -1228,13 +1251,15 @@ void TeacherToPerformActionOnStudentMarks(int teacherClass)
 {
     while (true)
     {
-        cout << "\n<======== Menu ========>\n";
-        cout << "[1] Record Marks\n";
-        cout << "[2] Update Marks\n";
-        cout << "[3] Display Marks For Student\n";
-        cout << "[4] Return to Teacher Menu\n";
+    	TextTypingAnimation("\n\n\t\t\t\t\t    --------------------------- \n", 5 , "34");
+        TextTypingAnimation("\t\t\t\t\t   |            MENU           | \n", 5 , "33");
+        TextTypingAnimation("\t\t\t\t\t    --------------------------- \n", 5 , "34");
 
-        cout << "\n Enter Your choice from above : ";
+        cout << "\n\t\t\t\t\t   [1] Record Marks \n";
+        cout << "\t\t\t\t\t   [2] Update Marks \n";
+        cout << "\t\t\t\t\t   [3] Display Marks For Student \n";
+        cout << "\t\t\t\t\t   [4] Return to Teacher Menu \n";
+        TextTypingAnimation(" \n\t\t\t\t\t   Enter Your choice from above : ", 10, "33");
 
         int choice;
         cin >> choice;
@@ -1601,13 +1626,15 @@ void TeacherToPerformActionOnStudentAttendance(int teacherClass)
 {
     while (true)
     {
-        cout << "\n<======== Menu ========>\n";
-        cout << "[1] Record Attendance\n";
-        cout << "[2] Update Attendance\n";
-        cout << "[3] Display Attendance\n";
-        cout << "[4] Return to Teacher Menu\n";
+    	TextTypingAnimation("\n\n\t\t\t\t\t    --------------------------- \n", 5 , "34");
+        TextTypingAnimation("\t\t\t\t\t   |            MENU           | \n", 5 , "33");
+        TextTypingAnimation("\t\t\t\t\t    --------------------------- \n", 5 , "34");
 
-        cout << "\n Enter Your choice from above : ";
+        cout << "\n\t\t\t\t\t   [1] Record Attendance \n";
+        cout << "\t\t\t\t\t   [2] Update Attendance \n";
+        cout << "\t\t\t\t\t   [3] Display Attendance \n";
+        cout << "\t\t\t\t\t   [4] Return to Teacher Menu \n";
+        TextTypingAnimation(" \n\t\t\t\t\t   Enter Your choice from above : ", 10, "33");
 
         int choice;
         cin >> choice;
@@ -1660,10 +1687,10 @@ void RecordAttendance(int teacherClass)
     }
     else
     {
-        for (int i = 0; i < student_count[teacherClass - 1]; ++i)
+        if (ltm->tm_wday >= 1 && ltm->tm_wday <= 5)
         {
-        	if (ltm->tm_wday >= 1 && ltm->tm_wday <= 5)
-           {
+	        for (int i = 0; i < student_count[teacherClass - 1]; ++i)
+	        {
 	            cout << "Marking attendance for " << name[teacherClass - 1][i] << " (Roll No. " << Roll_no[teacherClass - 1][i] << ")\n";
 	
 	            while (true)
@@ -1686,25 +1713,18 @@ void RecordAttendance(int teacherClass)
 	                    cin.clear();               // Clear the error state
 	                    cin.ignore(INT_MAX, '\n'); // Ignore the invalid input
 	                }
-	            }
+	            }    
 	            
-	            
-	            
+		    }
+		        cout << "Attendance marked successfully for class " << teacherClass << ".\n";
            	    PausingOnInvalidInputs();
            	    system("cls");
+		        SaveStudentAttendanceToFile();
            	    return;
-		   }else{
-			   	TextTypingAnimation(" Today is Holiday!\n", 150, "32");
-			   	return;
-		   }
+		      // Save attendance to file after marking
         }
     }
-
-    cout << "Attendance marked successfully for class " << teacherClass << ".\n";
-    // Save attendance to file after marking
-    SaveStudentAttendanceToFile();
 }
-
 void UpdateStudentAttendance(int teacherClass)
 {
     cout << "\n<======== Update Attendence ========>\n";
@@ -1738,9 +1758,7 @@ void UpdateStudentAttendance(int teacherClass)
                     {
                         // Save attendance for the current day
                         attendance[teacherClass - 1][j][currentDayIndex] = status;
-                        cout << "Student Attendance Updated Successfully \n";
-	                    SaveStudentAttendanceToFile();
-	                    return;
+                        break; // Break out of the loop if input is valid
                     }
                     else
                     {
@@ -1748,7 +1766,9 @@ void UpdateStudentAttendance(int teacherClass)
                         cin.clear();               // Clear the error state
                         cin.ignore(INT_MAX, '\n'); // Ignore the invalid input
                     }
-                    
+                    cout << "Student Attendance Updated Successfully \n";
+                    SaveStudentAttendanceToFile();
+                    return;
                 }
                 else
                 {
@@ -1880,6 +1900,7 @@ void SaveStudentAttendanceToFile()
 
     file.close();
 }
+
 void LoadStudentAttendanceFromFile()
 {
     ifstream file("student_attendance.txt");
@@ -1919,6 +1940,8 @@ void LoadStudentAttendanceFromFile()
     file.close();
 }
 
+
+
 // <---------------- Function/Actions that Student can Perform ---------------->
 void StudentLogin()
 {
@@ -1928,7 +1951,7 @@ void StudentLogin()
     while (true)
     {
 
-        cout << "Enter your Roll No.: ";
+        cout << "\n\n\n\t\t\t\t\tEnter your Roll No.: ";
         int studentRoll;
         cin >> studentRoll;
         // Check if input is valid
@@ -1958,20 +1981,22 @@ void StudentLogin()
 
         if (!studentFound)
         {
-            cout << "Student with Roll No. " << studentRoll << " not found.\n";
+        	PrintColoredText("\t\t\t\t\tStudent with Roll No. ","31");
+            cout <<  studentRoll ;
+			PrintColoredText(" not found.\n","31");
             PausingOnInvalidInputs();
             system("cls");
             break;
         }
 
-        cout << "Enter your password: ";
+        cout << "\t\t\t\t\tEnter your password: ";
         cin >> enteredPassword;
 
         if (enteredPassword == storedPassword)
         {
             system("cls");
-            TextTypingAnimation(" Please Wait Logging in .....\n", 150, "32");
-            TextTypingAnimation(" Getting Things Ready for you ...\n", 150, "32");
+            TextTypingAnimation("\n\n\n\t\t\t\t\t Please Wait Logging in .....\n", 50, "32");
+            TextTypingAnimation("\t\t\t\t\t Getting Things Ready for you ...\n", 50, "32");
             system("cls");
             StudentPanel(studentClass, studentIndex);
             break;
@@ -1979,17 +2004,18 @@ void StudentLogin()
         else
         {
             system("cls");
-            PrintColoredText("--------Wrong Credentials!--------\n", "31");
+            PrintColoredText("\n\n\n\t\t\t\t\t--------Wrong Credentials!--------\n", "31");
             attempts++;
             if (attempts <= maxAttempts)
             {
-                cout << "Attempts left: " << maxAttempts - attempts + 1 << endl;
+                PrintColoredText("\n\t\t\t\t\tAttempts left: ","31");
+				cout << maxAttempts - attempts + 1 << endl;
             }
             else
             {
                 system("cls");
-                PrintColoredText("You have tried too many times. You can't sign in for 24 hours.\n", "31");
-                TextTypingAnimation("Exiting School Management System..... \n", 50, "32");
+                PrintColoredText("\n\n\n\t\t\t\tYou have tried too many times. You can't sign in for 24 hours.\n", "31");
+                TextTypingAnimation("\t\t\t\tExiting School Management System..... \n", 50, "32");
                 PausingOnInvalidInputs();
                 system("cls");
                 Pattern();
@@ -2002,14 +2028,20 @@ void StudentPanel(int studentClass, int studentIndex)
 {
     while (true)
     {
-        TextTypingAnimation("\t\t\t\t<============ Welcome to the Student Panel ============> \n", 20, "33");
-        TextTypingAnimation("\n <======== MENU ========>\n", 10, "33");
-        cout << "[1] View My Details\n";
-        cout << "[2] View My Marks\n";
-        cout << "[3] View My Attendance\n";
-        cout << "[4] Change password\n";
-        cout << "[5] Return to Main Menu\n";
-        TextTypingAnimation(" \n Enter Your choice from above : ", 10, "33");
+    	TextTypingAnimation("\t\t\t\t ---------------------------------------------------------------- \n", 5 , "34");
+        TextTypingAnimation("\t\t\t\t|                  Welcome to the Student Panel                  | \n", 5 , "33");
+        TextTypingAnimation("\t\t\t\t ---------------------------------------------------------------- \n", 5 , "34");
+        
+    	TextTypingAnimation("\n\n\t\t\t\t\t    --------------------------- \n", 5 , "34");
+        TextTypingAnimation("\t\t\t\t\t   |            MENU           | \n", 5 , "33");
+        TextTypingAnimation("\t\t\t\t\t    --------------------------- \n", 5 , "34");
+
+        cout << "\n\t\t\t\t\t   [1] View My Details \n";
+        cout << "\t\t\t\t\t   [2] View My Marks \n";
+        cout << "\t\t\t\t\t   [3] View My Attendance \n";
+        cout << "\t\t\t\t\t   [4] Change password \n";
+        cout << "\t\t\t\t\t   [5] Return to Main Menu \n";
+        TextTypingAnimation(" \n\t\t\t\t\t   Enter Your choice from above : ", 10, "33");
 
         int choice;
         cin >> choice;
