@@ -532,7 +532,10 @@ void addTeacher()
             {
                 if (teacherInpID == teacherID[i])
                 {
-                    cout << "Sorry, Teacher with ID  " << teacherInpID << " already exists with Teacher " << teacherName[j] << endl;
+                	TextTypingAnimation("Sorry, Teacher with ID ", 5, "31");
+		        	cout<<teacherInpID;
+		        	TextTypingAnimation(" already exists with Teacher ", 5, "31");
+		        	cout<<teacherName[j]<<"\n";
                     cout << "<-------------------->\n";
                     return;
                 }
@@ -549,7 +552,7 @@ void addTeacher()
 
         if (teacherInpGen != 'M' && teacherInpGen != 'F')
         {
-            cout << "Invalid Gender!!";
+        	TextTypingAnimation("Invalid Gender!!", 5, "31");
             return;
         }
 
@@ -579,7 +582,7 @@ void addTeacher()
 
         if (teacherInpClass < 1 || teacherInpClass > 10)
         {
-            cout << "Invalid class. Please enter a class between 1 and 10.\n";
+        	TextTypingAnimation("Invalid class. Please enter a class between 1 and 10.\n", 5, "31");
             cout << "<-------------------->\n";
             return;
         }
@@ -596,7 +599,9 @@ void addTeacher()
 
         if (classAlreadyAssigned)
         {
-            cout << "The class " << teacherInpClass << " is already assigned to another teacher.\n";
+        	TextTypingAnimation("The class ", 5, "31");
+        	cout<<teacherInpClass;
+        	TextTypingAnimation(" is already assigned to another teacher.\n", 5, "31");
             cout << "<-------------------->\n";
             return;
         }
@@ -614,7 +619,8 @@ void addTeacher()
     }
     else
     {
-        cout << "Sorry, can't add more teachers. The limit is " << MAX_Teachers << ".\n";
+    	TextTypingAnimation("Sorry, can't add more teachers. The limit is ", 50, "32");
+    	cout<<MAX_Teachers << ".\n";
         cout << "<-------------------->\n";
     }
 }
@@ -632,7 +638,7 @@ void removeTeacher()
 
     if (teacher_count == 0)
     {
-        cout << "No Teachers in the system!";
+	    TextTypingAnimation("No Teachers in the system!\n", 50, "31");
         return;
     }
     for (int i = 0; i < teacher_count; ++i)
@@ -660,21 +666,25 @@ void removeTeacher()
 
                 // Decrement the teacher count
                 teacher_count--;
-                cout << "Teacher with ID " << idToRemove << " removed successfully.\n";
+        
+                TextTypingAnimation("Teacher with ID ", 50, "32");
+				cout << idToRemove;
+				TextTypingAnimation(" removed successfully.\n", 5, "32");
                 cout << "<-------------------->\n";
                 SaveTeacherToFile(); // Assuming you have a function to save teacher data to a file
                 return;
             }
             else
             {
-                cout << "Removal cancelled.\n";
+            	TextTypingAnimation("Removal cancelled.\n", 50, "32");
                 cout << "<-------------------->\n";
                 return;
             }
         }
     }
-
-    cout << "Teacher with ID " << idToRemove << " not found.\n";
+    TextTypingAnimation("Teacher with ID ", 50, "31");
+	cout << idToRemove;
+	TextTypingAnimation(" not found.\n", 5, "31");
     cout << "<-------------------->\n";
 }
 void updateTeacher()
@@ -703,7 +713,7 @@ void updateTeacher()
 
             if (teacherInpGen != 'M' && teacherInpGen != 'F')
             {
-                cout << "Invalid Gender!!";
+                TextTypingAnimation("Invalid Gender!!", 5, "31");
                 return;
             }
             teacherGender[i] = teacherInpGen;
@@ -724,15 +734,18 @@ void updateTeacher()
                 HandlingInvalidInputs();
                 continue; // continue the loop
             }
-            cout << "Teacher with ID " << idToUpdate << " updated successfully.\n";
+            TextTypingAnimation("Teacher with ID ", 50, "32");
+			cout << idToUpdate;
+			TextTypingAnimation(" updated successfully.\n", 5, "32");
             cout << "<-------------------->\n";
             SaveTeacherToFile(); // Save data to file after updating a teacher
             return;
         }
     }
-
-    cout << "Teacher with ID " << idToUpdate << " not found.\n";
-    cout << "<-------------------->\n";
+        TextTypingAnimation("Teacher with ID ", 50, "31");
+		cout << idToUpdate;
+		TextTypingAnimation(" not found.\n", 5, "31");
+        cout << "<-------------------->\n";
 }
 void AllTeachers()
 {
@@ -740,7 +753,7 @@ void AllTeachers()
 
     if (teacher_count == 0)
     {
-        cout << "No teachers in the system.\n";
+        TextTypingAnimation("No Teachers in the system!\n", 50, "31");
         cout << "<---------------------------------------------->\n";
     }
     else
