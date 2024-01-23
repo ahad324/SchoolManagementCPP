@@ -640,7 +640,7 @@ void removeTeacher()
         if (idToRemove == teacherID[i])
         {
             // Display information about the teacher to be removed
-            cout << "Are you sure you want to remove the following Student?\n";
+            cout << "Are you sure you want to remove the following Teacher?\n";
             cout << "ID: " << teacherID[i] << "\nName: " << teacherName[i] << "\nClass: " << teacherClass[i] << "\nGender: " << teacherGender[i] << "\nAge: " << teacherAge[i] << "\nSalary: " << teacherSalary[i] << "\n";
 
             cout << "Enter 'Y' to confirm or any other key to cancel: ";
