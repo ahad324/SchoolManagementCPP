@@ -536,7 +536,8 @@ void addTeacher()
 		        	cout<<teacherInpID;
 		        	TextTypingAnimation(" already exists with Teacher ", 5, "31");
 		        	cout<<teacherName[j]<<"\n";
-                    cout << "<-------------------->\n";
+                    PausingOnInvalidInputs();
+        			system("cls");
                     return;
                 }
             }
@@ -553,6 +554,8 @@ void addTeacher()
         if (teacherInpGen != 'M' && teacherInpGen != 'F')
         {
         	TextTypingAnimation("Invalid Gender!!", 5, "31");
+        	PausingOnInvalidInputs();
+        	system("cls");
             return;
         }
 
@@ -583,7 +586,8 @@ void addTeacher()
         if (teacherInpClass < 1 || teacherInpClass > 10)
         {
         	TextTypingAnimation("Invalid class. Please enter a class between 1 and 10.\n", 5, "31");
-            cout << "<-------------------->\n";
+            PausingOnInvalidInputs();
+        	system("cls");
             return;
         }
         bool classAlreadyAssigned = false;
@@ -602,7 +606,8 @@ void addTeacher()
         	TextTypingAnimation("The class ", 5, "31");
         	cout<<teacherInpClass;
         	TextTypingAnimation(" is already assigned to another teacher.\n", 5, "31");
-            cout << "<-------------------->\n";
+            PausingOnInvalidInputs();
+            system("cls");
             return;
         }
 
@@ -616,12 +621,15 @@ void addTeacher()
         TextTypingAnimation("Teacher added successfully.", 50, "32");
         teacher_count++;
         SaveTeacherToFile();
+        PausingOnInvalidInputs();
+        system("cls");
     }
     else
     {
     	TextTypingAnimation("Sorry, can't add more teachers. The limit is ", 50, "32");
     	cout<<MAX_Teachers << ".\n";
-        cout << "<-------------------->\n";
+        PausingOnInvalidInputs();
+        system("cls");
     }
 }
 void removeTeacher()
@@ -670,14 +678,16 @@ void removeTeacher()
                 TextTypingAnimation("Teacher with ID ", 50, "32");
 				cout << idToRemove;
 				TextTypingAnimation(" removed successfully.\n", 5, "32");
-                cout << "<-------------------->\n";
-                SaveTeacherToFile(); // Assuming you have a function to save teacher data to a file
+                SaveTeacherToFile();
+                PausingOnInvalidInputs();
+                system("cls");
                 return;
             }
             else
             {
             	TextTypingAnimation("Removal cancelled.\n", 50, "32");
-                cout << "<-------------------->\n";
+                PausingOnInvalidInputs();
+        		system("cls");
                 return;
             }
         }
@@ -685,7 +695,8 @@ void removeTeacher()
     TextTypingAnimation("Teacher with ID ", 50, "31");
 	cout << idToRemove;
 	TextTypingAnimation(" not found.\n", 5, "31");
-    cout << "<-------------------->\n";
+    PausingOnInvalidInputs();
+    system("cls");
 }
 void updateTeacher()
 {
@@ -737,38 +748,40 @@ void updateTeacher()
             TextTypingAnimation("Teacher with ID ", 50, "32");
 			cout << idToUpdate;
 			TextTypingAnimation(" updated successfully.\n", 5, "32");
-            cout << "<-------------------->\n";
             SaveTeacherToFile(); // Save data to file after updating a teacher
+            PausingOnInvalidInputs();
+            system("cls");
             return;
         }
     }
         TextTypingAnimation("Teacher with ID ", 50, "31");
 		cout << idToUpdate;
 		TextTypingAnimation(" not found.\n", 5, "31");
-        cout << "<-------------------->\n";
+        PausingOnInvalidInputs();
+        system("cls");
 }
 void AllTeachers()
 {
-    cout << "\n<======== List of Teachers ========>\n";
+    TextTypingAnimation("\n\t\t\t\t<================ List of Teachers ================>\n",5,"32");
 
     if (teacher_count == 0)
     {
-        TextTypingAnimation("No Teachers in the system!\n", 50, "31");
-        cout << "<---------------------------------------------->\n";
+        TextTypingAnimation("\t\t\t\t    No Teachers in the system!\n", 50, "31");
+        cout << "\t\t\t\t<---------------------------------------------->\n";
     }
     else
     {
         for (int i = 0; i < teacher_count; i++)
         {
-            cout << "Teacher ID: " << teacherID[i] << endl;
-            cout << "Teacher Name: " << teacherName[i] << endl;
-            cout << "Teacher Class: " << teacherClass[i] << endl;
-            cout << "Teacher Gender: " << (teacherGender[i] == 'M' ? "Male" : "Female") << endl;
-            cout << "Teacher Age: " << teacherAge[i] << endl;
-            cout << "Teacher Salary: " << teacherSalary[i] << endl;
-            cout << "<-------------------->\n";
+            cout << "\n\t\t\t\t\t\tTeacher ID:      " << teacherID[i] << endl;
+            cout << "\t\t\t\t\t\tTeacher Name:    " << teacherName[i] << endl;
+            cout << "\t\t\t\t\t\tTeacher Class:   " << teacherClass[i] << endl;
+            cout << "\t\t\t\t\t\tTeacher Gender:  " << (teacherGender[i] == 'M' ? "Male" : "Female") << endl;
+            cout << "\t\t\t\t\t\tTeacher Age:     " << teacherAge[i] << endl;
+            cout << "\t\t\t\t\t\tTeacher Salary:  " << teacherSalary[i] << endl;
+            cout << "\t\t\t\t\t<------------------------------------>\n";
         }
-        cout << "Press Enter to go back ...\n";
+        TextTypingAnimation("Press Enter to go back ...\n", 5, "32");
 	    cin.ignore(); // Ignore any leftover newline characters
 	    cin.get();    // Wait for Enter key press
 	    system("cls");
@@ -831,7 +844,9 @@ bool GetStudentDataFromAdmin(string &studentName, char &studentInpGen, int &stud
 
     if (studentInpGen != 'M' && studentInpGen != 'F')
     {
-        cout << "Invalid Gender!!";
+    	TextTypingAnimation("Invalid Gender!!", 5, "31");
+        PausingOnInvalidInputs();
+        system("cls");
         return false;
     }
 
@@ -875,8 +890,15 @@ void Add_Student()
         {
             if (studentRoll == Roll_no[i][j])
             {
-                cout << "Sorry, Roll No. " << studentRoll << " already exists with Student " << name[i][j] << " in Class " << (i + 1) << endl;
-                cout << "<-------------------->\n";
+            	TextTypingAnimation("Sorry, Roll No. ", 5, "31");
+		        cout<<studentRoll;
+		        TextTypingAnimation(" already exists with Student ", 5, "31");
+		        cout<<name[i][j];
+		        TextTypingAnimation(" in Class ", 5, "31");
+		        cout<<(i + 1) << endl;
+                PausingOnInvalidInputs();
+        		system("cls");
+
                 return;
             }
         }
@@ -892,8 +914,9 @@ void Add_Student()
 
     if (studentClassInput < 1 || studentClassInput > 10)
     {
-        cout << "Invalid class. Please enter a class between 1 and 10.\n";
-        cout << "<-------------------->\n";
+    	TextTypingAnimation("Invalid class. Please enter a class between 1 and 10.\n", 5, "31");
+        PausingOnInvalidInputs();
+        system("cls");
         return;
     }
     int classIndex = studentClassInput - 1;
@@ -906,14 +929,27 @@ void Add_Student()
         studentGender[classIndex][student_count[classIndex]] = studentInpGen;
         studentAge[classIndex][student_count[classIndex]] = studentInpAge;
         studentFee[classIndex][student_count[classIndex]] = studentInpFee;
-        cout << "Student added successfully to Class " << studentClassInput << ".\n";
+        
+        TextTypingAnimation("Student added successfully to Class ", 5, "32");
+        cout<<studentClassInput<<endl;
         student_count[classIndex]++;
         SaveStudentToFile(); // Save data to file after adding a student
+        
+        PausingOnInvalidInputs();
+        system("cls");
     }
     else
     {
-        cout << "Sorry, can't add more students to Class " << studentClassInput << ". The limit is " << MAX_Students << " and there are already " << student_count[classIndex] << " students.";
-        cout << "<-------------------->\n";
+    	TextTypingAnimation("Sorry, can't add more students to Class ", 5, "31");
+    	cout<<studentClassInput;
+    	TextTypingAnimation(". The limit is ", 5, "31");
+    	cout<<MAX_Students;
+    	TextTypingAnimation(" and there are already ", 5, "31");
+    	cout<<student_count[classIndex];
+    	TextTypingAnimation(" students. ", 5, "31");
+    	
+        PausingOnInvalidInputs();
+        system("cls");
     }
 }
 
@@ -921,14 +957,17 @@ void All_Students()
 {
     for (int i = 0; i < MAX_Classes; ++i)
     {
-        cout << "\t\tList of Students in Class " << (i + 1) << ":\n";
+    	PrintColoredText("\t\t\t\tList of Students in Class ", "32");
+        cout << (i + 1) << ":\n";
         if (student_count[i] == 0)
         {
-            cout << "\t\tNo students in this class.\n";
-            cout << "<---------------------------------------------->\n";
+        	TextTypingAnimation("\t\t\t\tNo students in this class.\n", 5, "31");
+            PrintColoredText("<------------------------------------------------------------------------------------------------------------------>\n\n","31");
         }
         else
         {
+        	PrintColoredText("\t\t\t\t   Class Strength : ","33");
+			cout<<student_count[i]<<endl;
             for (int j = 0; j < student_count[i]; j++)
             {
                 cout << "Name: " << name[i][j] << endl;
@@ -939,6 +978,7 @@ void All_Students()
                 cout << "Fee: " << studentFee[i][j] << endl;
                 TextTypingAnimation("<-------------------->\n", 1, "32");
             }
+            PrintColoredText("<------------------------------------------------------------------------------------------------------------------>\n\n","31");
         }
     }
     cout << "Press Enter to go back ...\n";
@@ -995,7 +1035,9 @@ void Update_Student()
                 }
                 if (!isRollUnique)
                 {
-                    cout << "Error: The new Roll No. is already assigned to another student. Please choose a unique Roll No.\n";
+                	TextTypingAnimation("The new Roll No. is already assigned to another student. Please choose a unique Roll No.\n", 5, "31");
+                    PausingOnInvalidInputs();
+        			system("cls");
                     return;
                 }
 
@@ -1010,16 +1052,22 @@ void Update_Student()
                 studentGender[i][j] = studentInpGen;
                 studentAge[i][j] = studentInpAge;
                 studentFee[i][j] = studentInpFee;
-                cout << "Student with Roll No. " << rollToUpdate << " updated successfully.\n";
-                cout << "<-------------------->\n";
+                TextTypingAnimation("Student with Roll No. ", 5, "32");
+                cout<<rollToUpdate;
+                TextTypingAnimation(" updated successfully.\n", 5, "32");
+                
+                PausingOnInvalidInputs();
+        		system("cls");
                 SaveStudentToFile();
                 return;
             }
         }
     }
-
-    cout << "Student with Roll No. " << rollToUpdate << " not found.\n";
-    cout << "<-------------------->\n";
+    TextTypingAnimation("Student with Roll No. ", 5, "31");
+    cout<<rollToUpdate;
+    TextTypingAnimation(" not found.\n", 5, "31");
+    PausingOnInvalidInputs();
+    system("cls");
 }
 
 void Remove_Student()
@@ -1040,7 +1088,7 @@ void Remove_Student()
             if (rollToRemove == Roll_no[i][j])
             {
                 // Display information about the teacher to be removed
-                cout << "Are you sure you want to remove the following teacher?\n";
+                cout << "Are you sure you want to remove the following Student?\n";
                 cout << "ROll No.: " << Roll_no[i][j] << "\nName: " << name[i][j] << "\nClass: " << studentClass[i][j] << "\nGender: " << studentGender[i][j] << "\nAge: " << studentAge[i][j] << "\nFee: " << studentFee[i][j] << "\n";
 
                 cout << "Enter 'Y' to confirm or any other key to cancel: ";
@@ -1061,23 +1109,31 @@ void Remove_Student()
                     }
                     // Decrement the student count in the class
                     student_count[i]--;
-                    cout << "Student with Roll No. " << rollToRemove << " removed successfully.\n";
-                    cout << "<-------------------->\n";
+                    TextTypingAnimation("Student with Roll No. ", 5, "32");
+				    cout<<rollToRemove;
+				    TextTypingAnimation(" removed successfully.\n", 5, "32");
                     SaveStudentToFile();
+                    
+				    PausingOnInvalidInputs();
+				    system("cls");
                     return;
                 }
                 else
                 {
-                    cout << "Removal cancelled.\n";
-                    cout << "<-------------------->\n";
+                	TextTypingAnimation("Removal cancelled. ", 5, "32");
+                	PausingOnInvalidInputs();
+				    system("cls");
                     return;
                 }
             }
         }
     }
 
-    cout << "Student with Roll No. " << rollToRemove << " not found.\n";
-    cout << "<-------------------->\n";
+	TextTypingAnimation("Student with Roll No. ", 5, "31");
+	cout<<rollToRemove;
+	TextTypingAnimation(" not found.\n", 5, "31");
+	PausingOnInvalidInputs();
+	system("cls");
 }
 void SaveStudentToFile()
 {
@@ -1197,31 +1253,31 @@ void TeacherPanel(int teacherClass)
 }
 void ShowTeacherDetailsToTeacher(int teacherclass)
 {
-    cout << "\n<======== Teacher Details ========>\n";
+	TextTypingAnimation("\n\t\t\t\t<======== Teacher Details ========>\n\n", 1, "33");
 
-    TextTypingAnimation("Assigned Class: ", 1, "35");
+    TextTypingAnimation("\t\t\t\t\tAssigned Class: ", 1, "35");
     cout << teacherclass << endl;
-    TextTypingAnimation("Class Strength : ", 1, "35");
+    TextTypingAnimation("\t\t\t\t\tClass Strength : ", 1, "35");
     cout << student_count[teacherclass - 1] << endl;
     for (int i = 0; i < MAX_Teachers; i++)
     {
         if (teacherclass == teacherClass[i])
         {
 
-            TextTypingAnimation("Teacher Name: ", 1, "35");
+            TextTypingAnimation("\t\t\t\t\tTeacher Name: ", 1, "35");
             cout << teacherName[i] << endl;
-            TextTypingAnimation("Teacher ID: ", 1, "35");
+            TextTypingAnimation("\t\t\t\t\tTeacher ID: ", 1, "35");
             cout << teacherID[i] << endl;
-            TextTypingAnimation("Teacher Gender: ", 1, "35");
+            TextTypingAnimation("\t\t\t\t\tTeacher Gender: ", 1, "35");
             cout << (teacherGender[i] == 'M' ? "Male" : "Female") << endl;
-            TextTypingAnimation("Teacher Age: ", 1, "35");
+            TextTypingAnimation("\t\t\t\t\tTeacher Age: ", 1, "35");
             cout << teacherAge[i] << endl;
-            TextTypingAnimation("Teacher Salary: ", 1, "35");
+            TextTypingAnimation("\t\t\t\t\tTeacher Salary: ", 1, "35");
             cout << teacherSalary[i] << endl;
-            TextTypingAnimation("Password: ", 1, "35");
+            TextTypingAnimation("\t\t\t\t\tPassword: ", 1, "35");
             cout << teacherPassword[i] << endl;
 
-            cout << "<-------------------->\n";
+            cout << "\n\t\t\t\t    <------------------------------>\n";
             cout << "Press Enter to go back ...\n";
             cin.ignore(); // Ignore any leftover newline characters
             cin.get();    // Wait for Enter key press
@@ -1235,23 +1291,23 @@ void ShowTeacherDetailsToTeacher(int teacherclass)
 
 void ShowStudentsInTeacherClass(int teacherClass)
 {
-    cout << "\n\t\t<======== Viewing All Students ========>\n";
+	TextTypingAnimation("\n\t\t\t\t<======== Viewing All Students ========>\n", 1, "33");
     if (student_count[teacherClass - 1] == 0)
     {
-        TextTypingAnimation("No Students in the Class.\n", 1, "31");
+        TextTypingAnimation("\t\t\t\tNo Students in the Class.\n", 1, "31");
         PausingOnInvalidInputs();
         system("cls");
     }
     else
     {
-        TextTypingAnimation("\n\t\t  ROLL NO.\t\t  NAME\n", 1, "32");
+        TextTypingAnimation("\n\t\t\t\t    ROLL NO.\t\t  NAME\n", 1, "32");
         PausingOnInvalidInputs();
-        cout << "\t\t----------------------------------\n";
+        cout << "\t\t\t\t  ----------------------------------\n";
         for (int i = 0; i < student_count[teacherClass - 1]; ++i)
         {
-            cout << "\t\t    " << Roll_no[teacherClass - 1][i] << "\t\t\t  " << name[teacherClass - 1][i] << endl;
+            cout << "\t\t\t\t      " << Roll_no[teacherClass - 1][i] << "\t\t\t  " << name[teacherClass - 1][i] << endl;
         }
-        TextTypingAnimation("\t\t<----------------------------------->\n", 1, "32");
+        TextTypingAnimation("\t\t\t\t <----------------------------------->\n", 1, "32");
         cout << "Press Enter to go back ...\n";
         cin.ignore(); // Ignore any leftover newline characters
         cin.get();    // Wait for Enter key press
@@ -1302,7 +1358,7 @@ void TeacherToPerformActionOnStudentMarks(int teacherClass)
             return;
             break;
         default:
-            cout << "Invalid Choice !!";
+        	TextTypingAnimation("Invalid Choice !!", 5, "31");
             PausingOnInvalidInputs();
             system("cls");
             break;
@@ -1312,11 +1368,11 @@ void TeacherToPerformActionOnStudentMarks(int teacherClass)
 
 void RecordMarks(int teacherClass)
 {
-    cout << "\n<======== Record Marks ========>\n";
+	TextTypingAnimation("\n\t\t\t\t<======== Record Marks ========>\n\n", 5, "33");
 
     if (student_count[teacherClass - 1] == 0)
     {
-        TextTypingAnimation("No Students in the Class.\n", 1, "31");
+        TextTypingAnimation("\t\t\t\tNo Students in the Class.\n", 1, "31");
         PausingOnInvalidInputs();
         system("cls");
     }
@@ -1330,8 +1386,11 @@ void RecordMarks(int teacherClass)
             // Iterate over each student in the specified class
             for (int i = 0; i < student_count[teacherClass - 1]; ++i)
             {
-
-                cout << "Recording marks for " << name[teacherClass - 1][i] << " (Roll No. " << Roll_no[teacherClass - 1][i] << ")\n";
+				TextTypingAnimation("\n\t\t\t\tRecording marks for ", 5, "33");
+				cout<<name[teacherClass - 1][i];
+				TextTypingAnimation(" (Roll No. ", 1, "33");
+				cout<<Roll_no[teacherClass - 1][i];
+				TextTypingAnimation(")\n\n", 1, "33");
 
                 // Iterate over each subject
                 for (int j = 0; j < MAX_SUBJECTS; ++j)
@@ -1348,8 +1407,10 @@ void RecordMarks(int teacherClass)
                                 HandlingInvalidInputs();
                             }
                             else
-                            {
-                                cout << "Invalid input! Please enter marks between 0 and " << TotalMarks[j] << ".\n";
+                            {	
+								TextTypingAnimation("Invalid input! Please enter marks between 0 and ", 5, "31");
+								cout<<TotalMarks[j]<<endl;
+					            PausingOnInvalidInputs();
                             }
                             continue;
                         }
@@ -1364,18 +1425,22 @@ void RecordMarks(int teacherClass)
         }
         else
         {
-            cout << "Invalid Term\n";
+        	TextTypingAnimation("Invalid Term !!", 5, "31");
+            PausingOnInvalidInputs();
+            system("cls");
             return;
         }
-
-        cout << "Marks recorded successfully for class " << teacherClass << ", Term " << term << ".\n";
+		TextTypingAnimation("\n\nMarks recorded successfully for class ", 5, "32");
+		cout<<teacherClass << ", Term " << term<<endl;
+        PausingOnInvalidInputs();
+        system("cls");
         SaveStudentMarksToFile();
     }
 }
 void UpdateMarks(int teacherClass)
 {
-    cout << "\n<======== Update Marks ========>\n";
-
+	TextTypingAnimation("\n\t\t\t\t<======== Update Marks ========>\n\n", 5, "33");
+	
     int rollToUpdate, term;
     cout << "Enter Term (1,2,3): ";
     cin >> term;
@@ -1400,7 +1465,11 @@ void UpdateMarks(int teacherClass)
                     // Check if the student's class matches the class assigned to the teacher
                     if (i + 1 == teacherClass)
                     {
-                        cout << "Updating marks for " << name[i][j] << " (Roll No. " << Roll_no[i][j] << "):\n";
+                    	TextTypingAnimation("\n\t\t\t\tUpdating Marks for ", 5, "33");
+						cout<<name[i][j];
+						TextTypingAnimation(" (Roll No. ", 1, "33");
+						cout<<Roll_no[i][j];
+						TextTypingAnimation(")\n\n", 1, "33");
 
                         // Update marks for each subject
                         for (int k = 0; k < MAX_SUBJECTS; ++k)
@@ -1418,7 +1487,9 @@ void UpdateMarks(int teacherClass)
 		                            }
 		                            else
 		                            {
-		                                cout << "Invalid input! Please enter marks between 0 and " << TotalMarks[k] << ".\n";
+		                            	TextTypingAnimation("Invalid input! Please enter marks between 0 and ", 5, "31");
+										cout<<TotalMarks[k]<<endl;
+							            PausingOnInvalidInputs();
 		                            }
 		                                continue;
 		                        }
@@ -1430,23 +1501,34 @@ void UpdateMarks(int teacherClass)
     
                             }
 						}
-
-                        cout << "Marks updated successfully for student " << name[i][j] << ", Term " << term << ".\n";
-                        SaveStudentMarksToFile();
+						TextTypingAnimation("\n\nMarks updated successfully for student ", 5, "32");
+						cout<<name[i][j]  << ", Term " << term <<endl;
+				        PausingOnInvalidInputs();
+				        system("cls");
+				        SaveStudentMarksToFile();
                     }
                     else
                     {
-                        cout << "Student with Roll No. " << rollToUpdate << " is not in your assigned class.\n";
+                    	TextTypingAnimation("Student with Roll No. ", 5, "31");
+                    	cout<<rollToUpdate;
+                    	TextTypingAnimation(" is not in your assigned class.\n", 5, "31");
+                    	
+			            PausingOnInvalidInputs();
+			            system("cls");
                     }
                     return; // Exit the function after updating marks
                 }
             }
         }
-        cout << "Student with Roll No. " << rollToUpdate << " not found.\n";
+        TextTypingAnimation("Student with Roll No. ", 5, "31");
+        cout<<rollToUpdate;
+        TextTypingAnimation(" not found.\n", 5, "31");
     }
     else
     {
-        cout << "Invalid Term!\n";
+        TextTypingAnimation("Invalid Term !!", 5, "31");
+        PausingOnInvalidInputs();
+        system("cls");
         return;
     }
 }
@@ -1463,17 +1545,18 @@ void DisplayStudentMarks(int teacherClass)
 
         if (showmarks == 'Y' || showmarks == 'y')
         {
+        	system("cls");
             for (int i = 0; i < student_count[teacherClass - 1]; ++i)
             {
-                cout << "\n\t\tStudent: " << name[teacherClass - 1][i] << " (Roll No. " << Roll_no[teacherClass - 1][i] << ")\n";
-                cout << "\t\t--------------------------------\n";
+            	TextTypingAnimation("\n\t\t Student: ", 1, "33");
+                cout<< name[teacherClass - 1][i] << " (Roll No. " << Roll_no[teacherClass - 1][i] << ")\n";
+                cout << "\t\t --------------------------------\n";
+				TextTypingAnimation("\t\t  Subjects\t\tMarks\n ", 1, "32");
 
-                cout << "\t\tSubjects\t"
-                     << "\tMarks\n";
-                cout << "\t\t-----------------------------\n";
+                cout << "\t\t  -----------------------------\n";
                 for (int j = 0; j < MAX_SUBJECTS; ++j)
                 {
-                    cout << "\t\t " << subjects[j] << "\t\t";
+                    cout << "\t\t   " << subjects[j] << "\t\t";
                     // Showing Marks less than 40% with red color
                     int ObMarks = marks[teacherClass - 1][i][j][term];
                     Obperc = (ObMarks * 100) / TotalMarks[j];
@@ -1486,8 +1569,7 @@ void DisplayStudentMarks(int teacherClass)
                         cout << marks[teacherClass - 1][i][j][term] << endl;
                     }
                 }
-
-                cout << "\n\t\t<-------------------------->\n";
+				TextTypingAnimation("\n\t\t<------------------------------------->\n", 1, "31");
             }
             cout << "Press Enter to go back ...\n";
 		    cin.ignore(); // Ignore any leftover newline characters
@@ -1506,6 +1588,7 @@ void DisplayStudentMarks(int teacherClass)
                 HandlingInvalidInputs();
                 return;
             }
+            system("cls");
             // Find the student with the specified roll number
             for (int i = 0; i < MAX_Classes; ++i)
             {
@@ -1516,16 +1599,15 @@ void DisplayStudentMarks(int teacherClass)
                         // Check if the student's class matches the class assigned to the teacher
                         if (i + 1 == teacherClass)
                         {
-                            cout << "\n\t\tStudent: " << name[i][j] << " (Roll No. " << Roll_no[i][j] << ")\n";
-                            cout << "\t\t--------------------------------\n";
-
-                            cout << "\t\tSubjects\t"
-                                 << "\tMarks\n";
-                            cout << "\t\t-----------------------------\n";
+                        	TextTypingAnimation("\n\t\t Student: ", 1, "33");
+			                cout<<  name[i][j] << " (Roll No. " << Roll_no[i][j] << ")\n";
+			                cout << "\t\t --------------------------------\n";
+							TextTypingAnimation("\t\t  Subjects\t\tMarks\n ", 1, "32");
+ 							cout << "\t\t  -----------------------------\n";
                             // Display marks for each subject
                             for (int k = 0; k < MAX_SUBJECTS; ++k)
                             {
-                                cout << "\t\t " << subjects[k] << "\t\t";
+                            	cout << "\t\t   " << subjects[k] << "\t\t";
                                 // Showing Marks less than 40% with red color
                                 int ObMarks = marks[i][j][k][term];
                                 Obperc = (ObMarks * 100) / TotalMarks[k];
@@ -1538,7 +1620,7 @@ void DisplayStudentMarks(int teacherClass)
                                     cout << ObMarks << endl;
                                 }
                             }
-                            cout << "\n\t\t<-------------------------->\n";
+                            TextTypingAnimation("\n\t\t<------------------------------------->\n", 1, "31");
                             cout << "Press Enter to go back ...\n";
 						    cin.ignore(); // Ignore any leftover newline characters
 						    cin.get();    // Wait for Enter key press
@@ -1546,24 +1628,38 @@ void DisplayStudentMarks(int teacherClass)
                         }
                         else
                         {
-                            cout << "Student with Roll No. " << rollToDisplay << " is not in your assigned class.\n";
+                        	TextTypingAnimation("Student with Roll No. ", 5, "31");
+	                    	cout<<rollToDisplay;
+	                    	TextTypingAnimation(" is not in your assigned class.\n", 5, "31");
+	                    	
+				            PausingOnInvalidInputs();
+				            system("cls");
                         }
                         return; // Exit the function after displaying marks
                     }
                 }
             }
-            cout << "Student with Roll No. " << rollToDisplay << " not found.\n";
+            TextTypingAnimation("Student with Roll No. ", 5, "31");
+	        cout<<rollToDisplay;
+	        TextTypingAnimation(" not found.\n", 5, "31");
+	                    	
+			PausingOnInvalidInputs();
+			system("cls");
         }
         else
         {
 
-            cout << "Invalid Choice!\n";
+            TextTypingAnimation("Invalid Choice !!", 5, "31");
+	        PausingOnInvalidInputs();
+	        system("cls");
             return;
         }
     }
     else
     {
-        cout << "Invalid Term!\n";
+        TextTypingAnimation("Invalid Term !!", 5, "31");
+        PausingOnInvalidInputs();
+        system("cls");
         return;
     }
 }
