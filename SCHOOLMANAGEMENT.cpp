@@ -2345,7 +2345,7 @@ void ViewStudentDetailsToStudent(int studentclass, int studentIndex)
     TextTypingAnimation("\n\t\t\t\t<======== Student Details ========>\n\n", 5, "33");
 
     bool teacherFound = false;
-    TextTypingAnimation("\n\t\t\t\tClass Teacher: ", 1, "35");
+    TextTypingAnimation("\n\t\t\t\t\tClass Teacher: ", 1, "35");
     for (int i = 0; i < MAX_Teachers; i++)
     {
         if (teacherClass[i] == (studentclass + 1))
@@ -2437,7 +2437,9 @@ void ViewStudentMarksToStudent(int studentClass, int studentIndex)
     }
     else
     {
-        cout << "Invalid Term !\n";
+        TextTypingAnimation("Invalid Term !!", 5, "31");
+        PausingOnInvalidInputs();
+        system("cls");
         return;
     }
 }
