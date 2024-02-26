@@ -1,3 +1,6 @@
+
+// YOU CAN ALSO VIEW THE UI HERE => https://ahad324.github.io/WebSchoolManagement (Only Open in Laptop or Desktop)
+
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -62,14 +65,13 @@ void UpdateStudentAttendance(int teacherClass);
 void ViewStudentAttendance(int teacherClass);
 //                   <---------------------->
 
-// <----------- Actions That Teacher Can Perform ----------->
+// <----------- Actions That Student Can Perform ----------->
 void ViewStudentDetailsToStudent(int studentClass, int studentIndex);
 void ViewStudentMarksToStudent(int studentClass, int studentIndex);
 void ViewStudentAttendanceToStudent(int studentClass, int studentIndex);
 void ChangeStudentPassword(int studentClass, int studentIndex);
 //                   <---------------------->
 
-// <----------- Function For Text Typing Animation ----------->
 void PausingOnInvalidInputs()
 {
     this_thread::sleep_for(chrono::seconds(1));
@@ -1336,7 +1338,7 @@ void TeacherToPerformActionOnStudentMarks(int teacherClass)
         if (cin.fail())
         {
             HandlingInvalidInputs();
-            continue; // continue the loop
+            continue;
         }
 
         switch (choice)
